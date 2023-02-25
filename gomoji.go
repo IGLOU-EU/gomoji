@@ -5,8 +5,6 @@
 // utility functions implemented with this library.
 package gomoji
 
-import "strings"
-
 type Emojis []Emoji
 
 // An Emoji serves the necessary information for the use of emojis as its category
@@ -15,7 +13,7 @@ type Emoji struct {
 	Picto    string
 	Name     string
 	Category string
-	Keywords string
+	Keywords []string
 }
 
 type Groups []Group
@@ -71,8 +69,10 @@ func ByKeyword(keyword string) Emojis {
 
 	emojis := make(Emojis, 0, size)
 	for i := range List {
-		if strings.Contains(List[i].Keywords, keyword) {
-			emojis = append(emojis, List[i])
+		for _, k := range List[i].Keywords {
+			if k == keyword {
+				emojis = append(emojis, List[i])
+			}
 		}
 	}
 
