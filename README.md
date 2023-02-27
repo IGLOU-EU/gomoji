@@ -1,5 +1,6 @@
 # 🥰 Gomoji
 [![Go Reference](https://img.shields.io/badge/api-reference-blue?style=flat-square)](https://pkg.go.dev/github.com/iglou-eu/gomoji)
+[![Go Report Card](https://goreportcard.com/badge/github.com/IGLOU-EU/gomoji?style=flat-square)](https://goreportcard.com/report/github.com/IGLOU-EU/gomoji)
 [![Pull request are open](https://img.shields.io/badge/Pull_request-Open-green.svg?style=flat-square)](https://github.com/IGLOU-EU/gomoji/fork)
 [![License: GPL 3.0](https://img.shields.io/badge/License-GPL_3.0_or_later-blue.svg?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0.html)
 
@@ -41,5 +42,5 @@ func main() {
     }
 
     fmt.Printf("Here, this emoji is new, I would like to know its information :\n%#v", gomoji.Info("🧌"));
-)
+}
 ```
