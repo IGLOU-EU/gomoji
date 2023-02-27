@@ -5,7 +5,7 @@ declare -a emojis
 declare -A cat key
 
 # Global output
-declare EMOJIS EMOJIS_NB CAT CAT_NB KEY KEY_NB
+declare HASH_LT EMOJIS EMOJIS_NB CAT CAT_NB KEY KEY_NB
 
 # Utils var
 dirScript="$(dirname "$(readlink -fn "$0")")"
@@ -13,8 +13,13 @@ dirRoot="$(dirname "$dirScript")"
 
 fileTpl="$dirScript/data.tpl.go"
 fileOut="$dirRoot/data.go"
+fileLatest="$dirScript/latest.source"
 
 urlEmoji="https://unicode.org/emoji/charts/emoji-list.html"
+
+# Source previous build
+# shellcheck source=latest.source
+source "$fileLatest"
 
 error() {
 	printf \
@@ -45,10 +50,16 @@ url_get() {
 }
 
 main() {
-	# Syntax analysis and data processing
-	local _content
+	local _content _hash
 	_content="$(url_get "$urlEmoji" | tr -d '\r\n')"
+	_hash="$(printf '%s' "$_content" | shasum -a 256 | awk '{print $1}')"
 
+	# Check if there is something new
+	if [[ $_hash == "$HASH_LT" ]]; then
+		exit 0
+	fi
+
+	# Syntax analysis and data processing
 	local catActive
 	while read -r line; do
 		case "$line" in
@@ -107,6 +118,11 @@ main() {
 	envsubst <"$fileTpl" >"$fileOut"
 
 	sed -i -f <(printf '%s\n' "s^%EMOJIS^$EMOJIS^g") "$fileOut"
+
+	# Wrtie the latest file
+	printf	'#!/bin/bash\n# shellcheck disable=SC2034\nDATE_LT="%s"\nHASH_LT="%s"\nEMOJIS_NB=%d\nCAT_NB=%d\nKEY_NB=%d' \
+		"$(date -u --iso-8601)" "$_hash" "$EMOJIS_NB" "$CAT_NB" "$KEY_NB" \
+		> "$fileLatest"
 }
 
 main
