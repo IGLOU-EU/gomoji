@@ -6,13 +6,13 @@ The reason of this project, is that I like emoji and I wanted to make a small pr
 Fell free to request functionality and/or made PR 💞
 
 ## 🧠 Latest Release
-**Date**: `0000-00-00`   
-**Release ID**: `00000000000000000000000000000`
+**Date**: `2023-02-27`   
+**Release ID**: `ec6385419fb70e8910ca673133a19047e3a7442190c7ce9dd068f06ac522a946`
 
 **Number of ...**
-- **Emoji**: `0`
-- **Keywords**: `0`
-- **Category**: `0`
+- **Emoji**: `1853`
+- **Keywords**: `2965`
+- **Category**: `10`
 
 ## 💻 Usage
 To begin with the latest version you can import it in your project:
