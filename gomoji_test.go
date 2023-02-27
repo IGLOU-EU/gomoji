@@ -1,8 +1,9 @@
 package gomoji_test
 
 import (
-	"iglou-eu/gomoji"
 	"testing"
+
+	"github.com/IGLOU-EU/gomoji"
 )
 
 func TestGet(t *testing.T) {
