@@ -11,7 +11,7 @@ declare HASH_LT EMOJIS EMOJIS_NB CAT CAT_NB KEY KEY_NB
 dirScript="$(dirname "$(readlink -fn "$0")")"
 dirRoot="$(dirname "$dirScript")"
 
-fileTpl="$dirScript/data.tpl.go"
+fileTpl="$dirScript/data.tpl"
 fileOut="$dirRoot/data.go"
 fileLatest="$dirScript/latest.source"
 
