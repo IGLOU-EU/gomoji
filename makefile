@@ -6,6 +6,7 @@ upgrade: build test release
 
 build:
 	./script/builder.sh
+	@gofmt -s -w .
 
 release:
 	./script/release.sh

@@ -12,7 +12,7 @@ var List = [...]Emoji{
 const ListCategorySize uint = $CAT_NB
 
 // ListGroup is an array of Group elements
-// That usefull to allocate capacity in memory
+// That useful to allocate capacity in memory
 var ListCategory = Groups{
 	$CAT
 }
