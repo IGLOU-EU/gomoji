@@ -16,6 +16,15 @@ Fell free to request functionality and/or made PR 💞
 - **Keywords**: `2965`
 - **Category**: `10`
 
+## 🧬 Features
+- Get emoji and information by its name or picto 🧐
+- Find emojis and information by category or keywords 🔍
+- Get all emojis into a map formatted 🗃
+- Find number of emojis in a category 🧮
+- [ ] List emojis in a string #1
+- [ ] Replace emojis in a string #4
+- [ ] Apply emojis from slugs into a string #2
+
 ## 💻 Usage
 To begin with the latest version you can import it in your project:
 ```go
